@@ -20,12 +20,12 @@ void main()
         P[i].BT_TMP = P[i].BT;
         P[i].IsCOMP = 0;
     }
+    printf("\nGantt Chart:\n");
     int MIN_IND, MIN_BT, COMP = 0, CUR_TIME = 0, IsFirstProcess = 1;
     while (COMP != n)
     {
         MIN_IND = -1;
         MIN_BT = 999;
-        printf("%d comp %d n\n", COMP, n);
         for (i = 0; i < n; i++)
         {
             if (P[i].AT <= CUR_TIME && P[i].IsCOMP == 0)
@@ -51,6 +51,7 @@ void main()
         {
             P[MIN_IND].BT--;
             CUR_TIME++;
+            printf("| P%d(1) %d", P[MIN_IND].ID, CUR_TIME);
             if (P[MIN_IND].BT == 0)
             {
                 P[MIN_IND].CT = CUR_TIME;
