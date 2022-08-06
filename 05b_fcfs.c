@@ -13,13 +13,10 @@ void main()
     for (i = 0; i < n; i++)
     {
         P[i].ID = i + 1;
-        printf("Enter AT for %d process", i + 1);
+        printf("Enter AT for %d process :", i + 1);
         scanf("%d", &P[i].AT);
-        printf("Enter AT for %d process", i + 1);
+        printf("Enter AT for %d process :", i + 1);
         scanf("%d", &P[i].BT);
-        P[i].CT = 0;
-        P[i].WT = 0;
-        P[i].TAT = 0;
     }
     for (i = 0; i < n - 1; i++)
         for (j = 0; j < n - i - 1; j++)
