@@ -13,9 +13,9 @@ void main()
     for (i = 0; i < n; i++)
     {
         P[i].ID = i + 1;
-        printf("Enter AT for %d process :", i + 1);
+        printf("Enter AT for process %d :", i + 1);
         scanf("%d", &P[i].AT);
-        printf("Enter AT for %d process :", i + 1);
+        printf("Enter BT for process %d :", i + 1);
         scanf("%d", &P[i].BT);
     }
     for (i = 0; i < n - 1; i++)
