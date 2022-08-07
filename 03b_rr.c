@@ -65,6 +65,28 @@ void main()
             r = (r + 1) % n;
             WAIT[r] = CUR_IND;
         }
+        if (f > r && COMP != n)
+        {
+            f = 0;
+            r = -1;
+            int PREV = CUR_TIME;
+            printf("| Idle");
+            do
+            {
+                CUR_TIME++;
+                for (int i = 1; i < n; i++)
+                {
+                    if (P[i].BT > 0 && P[i].AT <= CUR_TIME)
+                    {
+                        r = (r + 1) % n;
+                        WAIT[r] = i;
+                        P[i].flag = 1;
+                        break;
+                    }
+                }
+            } while (r == -1);
+            printf("(%d) %d", CUR_TIME - PREV, CUR_TIME);
+        }
     }
     for (i = 0; i < n; i++)
     {
