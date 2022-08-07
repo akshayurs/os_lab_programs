@@ -7,7 +7,7 @@ void main()
 {
     struct process P[10], temp;
     int n, i, j, ct;
-    float total_tat, total_wt;
+    float total_tat = 0, total_wt = 0;
     printf("Enter the number of Process: ");
     scanf("%d", &n);
     for (i = 0; i < n; i++)
