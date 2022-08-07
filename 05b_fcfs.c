@@ -51,6 +51,6 @@ void main()
     {
         printf("%d\t%d\t%d\t%d\t%d\t%d\n", P[i].ID, P[i].AT, P[i].BT, P[i].CT, P[i].WT, P[i].TAT);
     }
-    printf("AVG TAT : %f\n", total_tat / n);
-    printf("AVG WT : %f\n", total_wt / n);
+    printf("AVG TAT : %.3f\n", total_tat / n);
+    printf("AVG WT : %.3f\n", total_wt / n);
 }
