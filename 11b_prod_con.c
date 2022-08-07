@@ -2,7 +2,6 @@
 #include <semaphore.h>
 #include <pthread.h>
 #include <stdlib.h>
-#include <time.h>
 #define MAXITEMS 5
 #define BUFFERSIZE 5
 sem_t full, empty;
