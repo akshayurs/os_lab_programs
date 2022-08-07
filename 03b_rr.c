@@ -38,7 +38,6 @@ void main()
     {
         CUR_IND = WAIT[f];
         f = (f + 1) % n;
-
         if (P[CUR_IND].BT > quantum)
         {
             P[CUR_IND].BT -= quantum;
@@ -76,9 +75,7 @@ void main()
     }
     printf("\nID\tAT\tBT\tCT\tWT\tTAT\n");
     for (i = 0; i < n; i++)
-    {
         printf("%d\t%d\t%d\t%d\t%d\t%d\n", P[i].ID, P[i].AT, P[i].BT_TMP, P[i].CT, P[i].WT, P[i].TAT);
-    }
     printf("AVG TAT : %.3f\n", total_tat / n);
     printf("AVG WT : %.3f\n", total_wt / n);
 }

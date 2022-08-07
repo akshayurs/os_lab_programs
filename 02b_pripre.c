@@ -30,28 +30,16 @@ void main()
         for (i = 0; i < n; i++)
         {
             if (P[i].AT <= CUR_TIME && P[i].BT > 0)
-            {
-                if (P[i].PRI < MIN_PRI)
+                if (P[i].PRI < MIN_PRI || (P[i].PRI == MIN_PRI && P[i].AT < P[MIN_IND].AT))
                 {
                     MIN_PRI = P[i].PRI;
                     MIN_IND = i;
                 }
-                if (P[i].PRI == MIN_PRI)
-                {
-                    if (P[i].AT < P[MIN_IND].AT)
-                    {
-                        MIN_PRI = P[i].PRI;
-                        MIN_IND = i;
-                    }
-                }
-            }
         }
-        if (MIN_IND == -1)
-            CUR_TIME++;
-        else
+        CUR_TIME++;
+        if (MIN_IND != -1)
         {
             P[MIN_IND].BT--;
-            CUR_TIME++;
             printf("| P%d(1) %d", P[MIN_IND].ID, CUR_TIME);
             if (P[MIN_IND].BT == 0)
             {
@@ -64,7 +52,6 @@ void main()
             }
         }
     }
-
     printf("\n\nID\tAT\tBT\tPRI\tCT\tWT\tTAT\n");
     for (i = 0; i < n; i++)
     {

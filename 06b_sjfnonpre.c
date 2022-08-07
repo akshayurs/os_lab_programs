@@ -27,21 +27,11 @@ void main()
         for (i = 0; i < n; i++)
         {
             if (P[i].AT <= CUR_TIME && P[i].BT > 0)
-            {
-                if (P[i].BT < MIN_BT)
+                if (P[i].BT < MIN_BT || (P[i].BT == MIN_BT && P[i].AT < P[MIN_IND].AT))
                 {
                     MIN_BT = P[i].BT;
                     MIN_IND = i;
                 }
-                if (P[i].BT == MIN_BT)
-                {
-                    if (P[i].AT < P[MIN_IND].AT)
-                    {
-                        MIN_BT = P[i].BT;
-                        MIN_IND = i;
-                    }
-                }
-            }
         }
         if (MIN_IND == -1)
             CUR_TIME++;
@@ -57,12 +47,9 @@ void main()
             printf("| P%d(%d) %d", P[MIN_IND].ID, P[MIN_IND].BT, CUR_TIME);
         }
     }
-
     printf("\n\nID\tAT\tBT\tCT\tWT\tTAT\n");
     for (i = 0; i < n; i++)
-    {
         printf("%d\t%d\t%d\t%d\t%d\t%d\n", P[i].ID, P[i].AT, P[i].BT, P[i].CT, P[i].WT, P[i].TAT);
-    }
     printf("AVG TAT : %.3f\n", total_tat / n);
     printf("AVG WT : %.3f\n", total_wt / n);
 }
