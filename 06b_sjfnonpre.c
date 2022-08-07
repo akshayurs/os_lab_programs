@@ -1,7 +1,7 @@
 #include <stdio.h>
 struct process
 {
-    int ID, AT, BT, CT, TAT, WT;
+    int ID, AT, BT, CT, TAT, WT, IsCOMP;
 };
 void main()
 {
@@ -17,6 +17,7 @@ void main()
         scanf("%d", &P[i].AT);
         printf("Enter BT for %d process :", i + 1);
         scanf("%d", &P[i].BT);
+        P[i].IsCOMP = 0;
     }
     printf("\nGantt Chart:\n");
     int MIN_IND, MIN_BT, COMP = 0, CUR_TIME = 0;
@@ -26,7 +27,7 @@ void main()
         MIN_BT = 999;
         for (i = 0; i < n; i++)
         {
-            if (P[i].AT <= CUR_TIME && P[i].BT > 0)
+            if (P[i].AT <= CUR_TIME && P[i].IsCOMP == 0)
                 if (P[i].BT < MIN_BT || (P[i].BT == MIN_BT && P[i].AT < P[MIN_IND].AT))
                 {
                     MIN_BT = P[i].BT;
@@ -43,6 +44,7 @@ void main()
             P[MIN_IND].WT = P[MIN_IND].TAT - P[MIN_IND].BT;
             total_tat += P[MIN_IND].TAT;
             total_wt += P[MIN_IND].WT;
+            P[MIN_IND].IsCOMP = 1;
             COMP++;
             printf("| P%d(%d) %d", P[MIN_IND].ID, P[MIN_IND].BT, CUR_TIME);
         }
