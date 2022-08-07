@@ -1,7 +1,7 @@
 #include <stdio.h>
 struct process
 {
-    int ID, AT, ST, BT, BT_TMP, CT, TAT, WT, IsCOMP;
+    int ID, AT, BT, BT_TMP, CT, TAT, WT, IsCOMP;
 };
 void main()
 {
