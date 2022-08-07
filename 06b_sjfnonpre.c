@@ -19,7 +19,7 @@ void main()
         scanf("%d", &P[i].BT);
     }
     printf("\nGantt Chart:\n");
-    int MIN_IND, MIN_BT, COMP, CUR_TIME = 0;
+    int MIN_IND, MIN_BT, COMP = 0, CUR_TIME = 0;
     while (COMP != n)
     {
         MIN_IND = -1;

@@ -54,7 +54,7 @@ void main()
         }
         for (int i = 0; i < n && P[i].AT <= CUR_TIME; i++)
         {
-            if (i == CUR_IND || P[i].flag == 1 || P[i].BT == 0)
+            if (P[i].flag == 1 || P[i].BT == 0)
                 continue;
             r = (r + 1) % n;
             P[i].flag = 1;
