@@ -33,7 +33,10 @@ void main()
     for (i = 1; i < n; i++)
     {
         if (P[i].AT > P[i - 1].CT)
+        {
+            printf("|Idle(%d) %d", P[i].AT - P[i - 1].CT, P[i].AT);
             ct = P[i].AT + P[i].BT;
+        }
         else
             ct += P[i].BT;
         P[i].CT = ct;
