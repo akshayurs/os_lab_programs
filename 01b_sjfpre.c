@@ -21,7 +21,7 @@ void main()
         P[i].IsCOMP = 0;
     }
     printf("\nGantt Chart:\n");
-    int MIN_IND, MIN_BT, COMP = 0, CUR_TIME = 0, IsFirstProcess = 1;
+    int MIN_IND, MIN_BT, COMP = 0, CUR_TIME = 0;
     while (COMP != n)
     {
         MIN_IND = -1;
@@ -60,7 +60,6 @@ void main()
                 total_tat += P[MIN_IND].TAT;
                 total_wt += P[MIN_IND].WT;
                 COMP++;
-                IsFirstProcess = 0;
                 P[MIN_IND].IsCOMP = 1;
             }
         }
