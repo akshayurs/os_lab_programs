@@ -28,7 +28,7 @@ void main()
                 P[j + 1] = temp;
             }
     P[0].CT = P[0].AT + P[0].BT;
-    ct = P[0].BT;
+    ct = P[0].CT;
     printf("| P%d(%d) %d", P[0].ID, P[0].BT, ct);
     for (i = 1; i < n; i++)
     {
