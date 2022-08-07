@@ -1,7 +1,7 @@
 #include <stdio.h>
 struct process
 {
-    int ID, PRI, AT, BT, CT, TAT, WT, IsCOMP;
+    int ID, PRI, AT, BT, CT, TAT, WT;
 };
 void main()
 {
@@ -19,7 +19,6 @@ void main()
         scanf("%d", &P[i].BT);
         printf("Enter Priority for process %d :", i + 1);
         scanf("%d", &P[i].PRI);
-        P[i].IsCOMP = 0;
     }
     int MIN_IND, MIN_PRI, COMP = 0, CUR_TIME = 0;
     printf("\nGantt Chart:\n");
@@ -29,7 +28,7 @@ void main()
         MIN_PRI = 999;
         for (i = 0; i < n; i++)
         {
-            if (P[i].AT <= CUR_TIME && P[i].IsCOMP == 0)
+            if (P[i].AT <= CUR_TIME && P[i].BT > 0)
             {
                 if (P[i].PRI < MIN_PRI)
                 {
@@ -57,7 +56,6 @@ void main()
             total_tat += P[MIN_IND].TAT;
             total_wt += P[MIN_IND].WT;
             COMP++;
-            P[MIN_IND].IsCOMP = 1;
             printf("| P%d(%d) %d", P[MIN_IND].ID, P[MIN_IND].BT, CUR_TIME);
         }
     }
